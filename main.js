@@ -209,6 +209,10 @@ function actualizarTablaPedido() {
 
          });
 
+   // Guardar el pedido actualizado en localStorage
+   localStorage.setItem('pedido', JSON.stringify(pedido));
+
+
 }
 
 
@@ -242,6 +246,8 @@ function limpiarPedido() {
    // window.location.reload();
     // Eliminar el pedido del localStorage
     localStorage.removeItem('pedido');
+
+    window.location.reload();
 
 
 }
