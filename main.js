@@ -239,7 +239,10 @@ function limpiarPedido() {
     document.getElementById('tablaPedido').style.display = 'none';
 
     // Recarga la página para volver al estado inicial
-    window.location.reload();
+   // window.location.reload();
+    // Eliminar el pedido del localStorage
+    localStorage.removeItem('pedido');
+
 
 }
 
