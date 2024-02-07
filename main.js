@@ -116,6 +116,9 @@ function agregarPlato() {
             pedido.push({ opcion, cantidad });
         }
 
+    // Guardar el pedido en localStorage
+    localStorage.setItem('pedido', JSON.stringify(pedido));
+
         // Actualiza la tabla y el resumen del pedido
         actualizarTablaPedido();
         actualizarResumenPedido();
@@ -124,6 +127,21 @@ function agregarPlato() {
         alert("Cantidad no válida. Por favor, elige una cantidad entre 1 y 10.");
     }
 }
+
+// Función para cargar el pedido desde localStorage
+function cargarPedidoDesdeLocalStorage() {
+    const pedidoGuardado = localStorage.getItem('pedido');
+    if (pedidoGuardado) {
+        pedido = JSON.parse(pedidoGuardado);
+        actualizarTablaPedido();
+        actualizarResumenPedido();
+    }
+}
+
+// En la inicialización de la página, cargar el pedido desde localStorage
+window.onload = function() {
+    cargarPedidoDesdeLocalStorage();
+};
 
 // Función para agregar un plato al arreglo de pedido
 function agregarAlPedido(opcion, cantidad) {
